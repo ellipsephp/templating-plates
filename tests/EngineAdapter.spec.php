@@ -4,7 +4,7 @@ use League\Plates\Engine;
 
 use Ellipse\Contracts\Templating\EngineInterface;
 
-use Ellipse\Adapters\Templating\EngineAdapter;
+use Ellipse\Adapters\Templating\Plates\EngineAdapter;
 
 describe('EngineAdapter', function () {
 

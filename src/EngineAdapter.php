@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace Ellipse\Adapters\Templating;
+namespace Ellipse\Adapters\Templating\Plates;
 
 use League\Plates\Engine;
 
