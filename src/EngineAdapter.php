@@ -28,8 +28,8 @@ class EngineAdapter implements EngineInterface
     /**
      * @inheritdoc
      */
-    public function render(string $file, array $values = []): string
+    public function render(string $file, array $data = []): string
     {
-        return $this->plates->render($file, $merged);
+        return $this->plates->render($file, $data);
     }
 }
