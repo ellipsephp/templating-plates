@@ -13,7 +13,7 @@ class PlatesEngineServiceProvider implements ServiceProvider
     public function getServices()
     {
         return [
-            EngineInterface::class => function ($container) {
+            Engine::class => function ($container) {
 
                 $path = $container->get('templating.path');
 
@@ -21,7 +21,13 @@ class PlatesEngineServiceProvider implements ServiceProvider
                     ? $container->get('templating.options.extension')
                     : 'php';
 
-                $plates = new Engine($path, $extension);
+                return new Engine($path, $extension);
+
+            },
+
+            EngineInterface::class => function ($container) {
+
+                $plates = $container->get(Engine::class);
 
                 return new EngineAdapter($plates);
 
