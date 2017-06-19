@@ -2,8 +2,6 @@
 
 namespace Ellipse\Adapters\Templating\Plates;
 
-use Exception;
-
 use Interop\Container\ServiceProvider;
 
 use Ellipse\Contracts\Templating\EngineInterface;
@@ -19,17 +17,9 @@ class PlatesEngineServiceProvider implements ServiceProvider
 
                 $path = $container->get('templating.path');
 
-                try {
-
-                    $extension = $container->get('templating.options.extension');
-
-                }
-
-                catch (Exception $e) {
-
-                    $extension = 'php';
-
-                }
+                $extension = $container->has('templating.options.extension')
+                    ? $container->get('templating.options.extension')
+                    : 'php';
 
                 $plates = new Engine($path, $extension);
 
