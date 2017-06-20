@@ -28,6 +28,14 @@ class EngineAdapter implements EngineInterface
     /**
      * @inheritdoc
      */
+    public function registerNamespace(string $namespace, string $path): void
+    {
+        $this->plates->addFolder($namespace, $path, true);
+    }
+
+    /**
+     * @inheritdoc
+     */
     public function registerFunction(string $name, callable $cb): void
     {
         $this->plates->registerFunction($name, $cb);

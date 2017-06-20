@@ -22,6 +22,22 @@ describe('EngineAdapter', function () {
 
     });
 
+    describe('->registerNamespace()', function () {
+
+        it('should proxy the underlying plates engine addFolder method', function () {
+
+            $namespace = 'namespace';
+            $path = 'path';
+
+            $this->decorated->shouldReceive('addFolder')->once()
+                ->with($namespace, $path, true);
+
+            $this->engine->registerNamespace($namespace, $path);
+
+        });
+
+    });
+
     describe('->registerFunction()', function () {
 
         it('should proxy the underlying plates engine registerFunction method', function () {
