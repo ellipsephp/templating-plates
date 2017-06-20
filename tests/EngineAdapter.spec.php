@@ -22,9 +22,25 @@ describe('EngineAdapter', function () {
 
     });
 
+    describe('->registerFunction()', function () {
+
+        it('should proxy the underlying plates engine registerFunction method', function () {
+
+            $name = 'name';
+            $cb = function () {};
+
+            $this->decorated->shouldReceive('registerFunction')->once()
+                ->with($name, $cb);
+
+            $this->engine->registerFunction($name, $cb);
+
+        });
+
+    });
+
     describe('->render()', function () {
 
-        it('should proxy the underlying plates instance render method', function () {
+        it('should proxy the underlying plates engine render method', function () {
 
             $name = 'name';
             $data = ['data'];

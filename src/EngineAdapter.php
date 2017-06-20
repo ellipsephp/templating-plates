@@ -28,6 +28,14 @@ class EngineAdapter implements EngineInterface
     /**
      * @inheritdoc
      */
+    public function registerFunction(string $name, callable $cb): void
+    {
+        $this->plates->registerFunction($name, $cb);
+    }
+
+    /**
+     * @inheritdoc
+     */
     public function render(string $file, array $data = []): string
     {
         return $this->plates->render($file, $data);
