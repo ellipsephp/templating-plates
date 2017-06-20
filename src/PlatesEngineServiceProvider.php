@@ -16,10 +16,9 @@ class PlatesEngineServiceProvider implements ServiceProvider
             Engine::class => function ($container) {
 
                 $path = $container->get('templating.path');
+                $options = $container->get('templating.options');
 
-                $extension = $container->has('templating.options.extension')
-                    ? $container->get('templating.options.extension')
-                    : 'php';
+                $extension = $options['extensions'] ?? 'php';
 
                 return new Engine($path, $extension);
 
