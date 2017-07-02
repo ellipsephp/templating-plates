@@ -4,9 +4,9 @@ namespace Ellipse\Adapters\Templating\Plates;
 
 use League\Plates\Engine;
 
-use Ellipse\Contracts\Templating\EngineInterface;
+use Ellipse\Contracts\Templating\EngineAdapterInterface;
 
-class EngineAdapter implements EngineInterface
+class EngineAdapter implements EngineAdapterInterface
 {
     /**
      * The underlying plates instance.
