@@ -44,6 +44,14 @@ class EngineAdapter implements EngineAdapterInterface
     /**
      * @inheritdoc
      */
+    public function registerExtension($extension): void
+    {
+        $this->plates->loadExtension($extension);
+    }
+
+    /**
+     * @inheritdoc
+     */
     public function render(string $file, array $data = []): string
     {
         return $this->plates->render($file, $data);

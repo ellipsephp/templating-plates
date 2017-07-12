@@ -1,6 +1,7 @@
 <?php
 
 use League\Plates\Engine;
+use League\Plates\Extension\ExtensionInterface;
 
 use Ellipse\Contracts\Templating\EngineAdapterInterface;
 
@@ -24,7 +25,7 @@ describe('EngineAdapter', function () {
 
     describe('->registerNamespace()', function () {
 
-        it('should proxy the underlying plates engine addFolder method', function () {
+        it('should proxy the underlying plates engine ->addFolder() method', function () {
 
             $namespace = 'namespace';
             $path = 'path';
@@ -40,7 +41,7 @@ describe('EngineAdapter', function () {
 
     describe('->registerFunction()', function () {
 
-        it('should proxy the underlying plates engine registerFunction method', function () {
+        it('should proxy the underlying plates engine ->registerFunction() method', function () {
 
             $name = 'name';
             $cb = function () {};
@@ -54,9 +55,24 @@ describe('EngineAdapter', function () {
 
     });
 
+    describe('->registerExtension()', function () {
+
+        it('should proxy the underlying plates engine ->loadExtension() method', function () {
+
+            $extension = Mockery::mock(ExtensionInterface::class);
+
+            $this->decorated->shouldReceive('loadExtension')->once()
+                ->with($extension);
+
+            $this->engine->registerExtension($extension);
+
+        });
+
+    });
+
     describe('->render()', function () {
 
-        it('should proxy the underlying plates engine render method', function () {
+        it('should proxy the underlying plates engine ->render() method', function () {
 
             $name = 'name';
             $data = ['data'];
