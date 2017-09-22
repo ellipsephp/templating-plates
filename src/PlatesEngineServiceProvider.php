@@ -2,13 +2,13 @@
 
 namespace Ellipse\Adapters\Templating\Plates;
 
-use Interop\Container\ServiceProvider;
+use Interop\Container\ServiceProviderInterface;
 
 use Ellipse\Contracts\Templating\EngineAdapterFactoryInterface;
 
-class PlatesEngineServiceProvider implements ServiceProvider
+class PlatesEngineServiceProvider implements ServiceProviderInterface
 {
-    public function getServices()
+    public function getFactories()
     {
         return [
             EngineAdapterFactoryInterface::class => function () {
@@ -17,5 +17,10 @@ class PlatesEngineServiceProvider implements ServiceProvider
 
             },
         ];
+    }
+
+    public function getExtensions()
+    {
+        //
     }
 }
