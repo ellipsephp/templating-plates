@@ -21,6 +21,6 @@ class PlatesEngineServiceProvider implements ServiceProviderInterface
 
     public function getExtensions()
     {
-        //
+        return [];
     }
 }
